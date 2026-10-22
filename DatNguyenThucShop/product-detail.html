@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+<title>Chi Tiết Sản Phẩm | DatNguyenThucShop</title>
+    <meta
+      name="description"
+      content="Chi tiết sản phẩm thời trang cao cấp tại DatNguyenThucShop."
+    />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/bo-cuc.css" />
+  </head>
+  <body>
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <iframe src="header.html" title="Phan dau trang" style="display:block;position:sticky;top:0;z-index:1000;width:100%;height:80px;border:0;overflow:hidden;background:#fff"></iframe>
+
+    <nav class="thanh-duong-dan" aria-label="Điều hướng đường dẫn">
+      <a href="index.html">Trang chủ</a>
+      <span class="dau-phan-cach" aria-hidden="true">›</span>
+      <a href="products.html">Sản phẩm</a>
+      <span class="dau-phan-cach" aria-hidden="true">›</span>
+      <span class="duong-dan-hien-tai" aria-current="page">Chi tiết sản phẩm</span>
+    </nav>
+    <main class="khung-noi-dung khung-chi-tiet-san-pham">
+      <!-- Rendered dynamically by products.js -->
+      <div id="productDetailContainer">
+        <!-- Loading placeholder -->
+        <div
+          style="
+            padding: 60px 0;
+            text-align: center;
+            color: var(--color-text-muted);
+          "
+        >
+          <i class="fa-solid fa-spinner fa-spin fa-2x"></i>
+          <div style="margin-top: 12px">Đang tải thông tin sản phẩm...</div>
+        </div>
+      </div>
+
+      <!-- PRODUCT TABS (Mô tả, Thông số, Bảng size, Chính sách, Đánh giá) -->
+      <phan-noi-dung
+        style="
+          margin-top: 40px;
+          border-top: 1px solid var(--color-border);
+          padding-top: 40px;
+        "
+      >
+        <div class="menu-tab">
+          <button
+            type="button"
+            class="nut-tab dang-chon"
+            data-tab="tabDescription"
+          >
+            Mô tả sản phẩm
+          </button>
+          <button type="button" class="nut-tab" data-tab="tabSpecs">
+            Thông số & Chất liệu
+          </button>
+          <button type="button" class="nut-tab" data-tab="tabSize">
+            Bảng kích cỡ (Size)
+          </button>
+          <button type="button" class="nut-tab" data-tab="tabPolicy">
+            Chính sách đổi trả
+          </button>
+          <button type="button" class="nut-tab" data-tab="tabReviews">
+            Đánh giá khách hàng
+          </button>
+        </div>
+
+        <!-- Tab 1: Mô tả -->
+        <div class="noi-dung-tab dang-chon" id="tabDescription">
+          <!-- Populated dynamically -->
+        </div>
+
+        <!-- Tab 2: Thông số -->
+        <div class="noi-dung-tab" id="tabSpecs">
+          <div style="max-width: 600px; line-height: 1.8">
+            <h3
+              style="
+                font-family: var(--font-heading);
+                font-size: 1.3rem;
+                margin-bottom: 16px;
+              "
+            >
+              Thông số kỹ thuật
+            </h3>
+            <table
+              style="width: 100%; border-collapse: collapse; font-size: 0.9rem"
+            >
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--color-border-subtle)">
+                  <td
+                    style="
+                      padding: 10px 0;
+                      color: var(--color-text-muted);
+                      width: 40%;
+                    "
+                  >
+                    Xuất xứ:
+                  </td>
+                  <td style="font-weight: 600">
+                    Việt Nam (Thiết kế độc quyền DatNguyenThucShop)
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border-subtle)">
+                  <td style="padding: 10px 0; color: var(--color-text-muted)">
+                    Form dáng:
+                  </td>
+                  <td style="font-weight: 600">
+                    Regular Fit / Chuẩn phom hiện đại
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border-subtle)">
+                  <td style="padding: 10px 0; color: var(--color-text-muted)">
+                    Đặc tính:
+                  </td>
+                  <td style="font-weight: 600">
+                    Chống nhăn, kháng khuẩn, mềm mại tự nhiên
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border-subtle)">
+                  <td style="padding: 10px 0; color: var(--color-text-muted)">
+                    Hướng dẫn giặt:
+                  </td>
+                  <td style="font-weight: 600">
+                    Giặt máy ở chế độ nhẹ, không dùng chất tẩy mạnh
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 0; color: var(--color-text-muted)">
+                    Bảo quản:
+                  </td>
+                  <td style="font-weight: 600">
+                    Ủi ở nhiệt độ thấp hoặc trung bình, phơi nơi thoáng gió
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 3: Bảng size -->
+        <div class="noi-dung-tab" id="tabSize">
+          <div style="max-width: 700px">
+            <h3
+              style="
+                font-family: var(--font-heading);
+                font-size: 1.3rem;
+                margin-bottom: 12px;
+              "
+            >
+              Bảng Hướng Dẫn Chọn Kích Cỡ Chuẩn
+            </h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                color: var(--color-text-muted);
+                margin-bottom: 20px;
+              "
+            >
+              Bảng quy chuẩn áp dụng cho người Việt Nam. Nếu số đo của bạn nằm
+              giữa hai khoảng size, vui lòng chọn size lớn hơn để tạo cảm giác
+              thoải mái khi mặc.
+            </p>
+            <table
+              style="
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.875rem;
+                text-align: center;
+              "
+            >
+              <thead>
+                <tr
+                  style="
+                    background: var(--color-bg-alt);
+                    border-bottom: 2px solid var(--color-border);
+                  "
+                >
+                  <th style="padding: 12px">Size</th>
+                  <th style="padding: 12px">Chiều cao (cm)</th>
+                  <th style="padding: 12px">Cân nặng (kg)</th>
+                  <th style="padding: 12px">Vòng ngực (cm)</th>
+                  <th style="padding: 12px">Vòng bụng (cm)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--color-border-subtle)">
+                  <td style="padding: 12px; font-weight: 700">S</td>
+                  <td>155 - 165</td>
+                  <td>48 - 56</td>
+                  <td>84 - 88</td>
+                  <td>72 - 76</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border-subtle)">
+                  <td style="padding: 12px; font-weight: 700">M</td>
+                  <td>165 - 172</td>
+                  <td>57 - 65</td>
+                  <td>89 - 94</td>
+                  <td>77 - 81</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border-subtle)">
+                  <td style="padding: 12px; font-weight: 700">L</td>
+                  <td>170 - 178</td>
+                  <td>66 - 74</td>
+                  <td>95 - 100</td>
+                  <td>82 - 86</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border-subtle)">
+                  <td style="padding: 12px; font-weight: 700">XL</td>
+                  <td>175 - 183</td>
+                  <td>75 - 82</td>
+                  <td>101 - 106</td>
+                  <td>87 - 91</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px; font-weight: 700">XXL</td>
+                  <td>180 - 188</td>
+                  <td>83 - 92</td>
+                  <td>107 - 114</td>
+                  <td>92 - 98</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 4: Chính sách -->
+        <div class="noi-dung-tab" id="tabPolicy">
+          <div
+            style="max-width: 700px; line-height: 1.8; color: var(--color-text)"
+          >
+            <h3
+              style="
+                font-family: var(--font-heading);
+                font-size: 1.3rem;
+                margin-bottom: 16px;
+              "
+            >
+              Chính Sách Đổi Trả & Giao Nhận
+            </h3>
+            <ul
+              style="
+                list-style: disc;
+                padding-left: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+              "
+            >
+              <li>
+                <strong>Đổi trả trong 30 ngày:</strong> Áp dụng cho mọi sản phẩm
+                còn nguyên tem mác, chưa qua sử dụng hoặc giặt tẩy.
+              </li>
+              <li>
+                <strong>Đổi size miễn phí tận nhà:</strong> Shipper sẽ mang size
+                mới tới tận nơi và lấy lại sản phẩm đổi mà bạn không cần phải ra
+                bưu cục.
+              </li>
+              <li>
+                <strong>Kiểm tra hàng trước khi thanh toán (COD):</strong> Khách
+                hàng được quyền kiểm tra sản phẩm trước khi thanh toán cho nhân
+                viên giao hàng.
+              </li>
+              <li>
+                <strong>Thời gian giao hàng:</strong> Nội thành Hà Nội & TP. HCM
+                giao trong 24h. Các tỉnh thành khác từ 2 - 3 ngày làm việc.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tab 5: Đánh giá -->
+        <div class="noi-dung-tab" id="tabReviews">
+          <div
+            style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px"
+          >
+            <div>
+              <h3
+                style="
+                  font-family: var(--font-heading);
+                  font-size: 1.3rem;
+                  margin-bottom: 16px;
+                "
+              >
+                Đánh Giá Từ Khách Hàng
+              </h3>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 16px;
+                  margin-bottom: 24px;
+                  padding: 18px;
+                  background: var(--color-bg-alt);
+                  border-radius: var(--radius-md);
+                "
+              >
+                <div
+                  style="
+                    font-size: 3rem;
+                    font-weight: 800;
+                    color: var(--color-primary);
+                    line-height: 1;
+                  "
+                >
+                  4.9
+                </div>
+                <div>
+                  <div
+                    class="sao-danh-gia"
+                    style="font-size: 1.1rem; margin-bottom: 4px"
+                  >
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </div>
+                  <div
+                    style="font-size: 0.85rem; color: var(--color-text-muted)"
+                  >
+                    Dựa trên hơn 120 đánh giá hài lòng
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review Comments -->
+              <div style="display: flex; flex-direction: column; gap: 16px">
+                <div
+                  style="
+                    border-bottom: 1px solid var(--color-border-subtle);
+                    padding-bottom: 14px;
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    <strong style="font-size: 0.9rem">Nguyễn Thùy Linh</strong>
+                    <span
+                      style="font-size: 0.75rem; color: var(--color-text-light)"
+                      >3 ngày trước</span
+                    >
+                  </div>
+                  <div
+                    class="sao-danh-gia"
+                    style="font-size: 0.8rem; margin-bottom: 6px"
+                  >
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p
+                    style="
+                      font-size: 0.875rem;
+                      color: var(--color-text-muted);
+                      line-height: 1.5;
+                    "
+                  >
+                    Sản phẩm đóng gói đẹp mắt, chất vải cầm đầm tay rất xịn xò.
+                    Mặc lên form chuẩn như hình. Rất hài lòng!
+                  </p>
+                </div>
+
+                <div
+                  style="
+                    border-bottom: 1px solid var(--color-border-subtle);
+                    padding-bottom: 14px;
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    <strong style="font-size: 0.9rem">Trần Tuấn Kiệt</strong>
+                    <span
+                      style="font-size: 0.75rem; color: var(--color-text-light)"
+                      >1 tuần trước</span
+                    >
+                  </div>
+                  <div
+                    class="sao-danh-gia"
+                    style="font-size: 0.8rem; margin-bottom: 6px"
+                  >
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p
+                    style="
+                      font-size: 0.875rem;
+                      color: var(--color-text-muted);
+                      line-height: 1.5;
+                    "
+                  >
+                    Giao hàng nhanh, tư vấn size rất chuẩn xác. Chắc chắn sẽ mua
+                    thêm màu khác nữa.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gửi đánh giá mới -->
+            <div
+              style="
+                background: var(--color-bg-alt);
+                padding: 24px;
+                border-radius: var(--radius-lg);
+                border: 1px solid var(--color-border);
+              "
+            >
+              <h4
+                style="font-weight: 700; margin-bottom: 12px; font-size: 1.1rem"
+              >
+                Viết Đánh Giá Của Bạn
+              </h4>
+              <form
+                onsubmit="
+                  event.preventDefault();
+                  hienThiThongBaoNho('Cảm ơn bạn đã gửi đánh giá sản phẩm!', 'success');
+                  this.reset();
+                "
+              >
+                <div class="nhom-truong-nhap" style="margin-bottom: 14px">
+                  <label class="nhan-truong-nhap" style="font-size: 0.85rem"
+                    >Đánh giá sao</label
+                  >
+                  <div
+                    class="sao-danh-gia"
+                    style="font-size: 1.25rem; cursor: pointer"
+                  >
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </div>
+                </div>
+                <div class="nhom-truong-nhap" style="margin-bottom: 14px">
+                  <label class="nhan-truong-nhap" style="font-size: 0.85rem"
+                    >Họ tên của bạn</label
+                  >
+                  <input
+                    type="text"
+                    class="o-nhap"
+                    placeholder="Nhập tên..."
+                    bat-buoc
+                  />
+                </div>
+                <div class="nhom-truong-nhap" style="margin-bottom: 14px">
+                  <label class="nhan-truong-nhap" style="font-size: 0.85rem"
+                    >Nội dung nhận xét</label
+                  >
+                  <textarea
+                    class="o-noi-dung"
+                    rows="3"
+                    placeholder="Chia sẻ cảm nhận về chất liệu, form dáng, độ vừa vặn..."
+                    bat-buoc
+                  ></textarea>
+                </div>
+                <button type="submit" class="nut nut-chinh nut-nho">
+                  Gửi đánh giá
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </phan-noi-dung>
+
+      <!-- RELATED DANH_SACH_SAN_PHAM SECTION -->
+      <phan-noi-dung
+        style="
+          margin-top: 70px;
+          border-top: 1px solid var(--color-border);
+          padding-top: 50px;
+        "
+      >
+        <div class="dau-muc-phan-noi-dung">
+          <span class="phu-de-phan-noi-dung">GỢI Ý PHỐI ĐỒ</span>
+          <h2 class="tieu-de-phan-noi-dung">Sản Phẩm Tương Tự</h2>
+          <p class="mo-ta-phan-noi-dung">
+            Khám phá các thiết kế có cùng phong cách để hoàn thiện diện mạo của
+            bạn.
+          </p>
+        </div>
+        <div class="luoi-san-pham" id="relatedProductsGrid">
+          <!-- Dynamic rendering by products.js -->
+        </div>
+      </phan-noi-dung>
+    </main>
+
+    <!-- FOOTER -->
+    <iframe src="footer.html" title="Phan chan trang" style="display:block;width:100%;height:390px;border:0;overflow:hidden"></iframe>
+
+    <!-- SCRIPTS -->
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

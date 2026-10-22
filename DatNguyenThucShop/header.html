@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/bo-cuc.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+html,body{margin:0;padding:0;width:100%;font-family:Arial,sans-serif}
+body{min-height:0;overflow:hidden;background-color: white ;}
+</style>
+</head><body>
+<!-- STICKY SITE HEADER -->
+    <header class="dau-trang">
+      <div class="khung-noi-dung dau-trang-ben-trong">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="logo-cua-hang">
+          <div class="bieu-tuong-logo">
+            <img src="../images/logo.png" alt="Logo DatNguyenThucShop" />
+          </div>
+         
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="menu-chinh" aria-label="Menu chính">
+          <ul class="danh-sach-menu">
+            <li class="muc-menu dang-chon">
+              <a href="index.html" class="lien-ket-menu" target="_top">Trang chủ</a>
+            </li>
+            <li class="muc-menu">
+              <a href="products.html?gender=nam" class="lien-ket-menu" target="_top">Nam</a>
+            </li>
+            <li class="muc-menu">
+              <a href="products.html?gender=nu" class="lien-ket-menu" target="_top">Nữ</a>
+            </li>
+            <li class="muc-menu">
+              <a href="products.html?category=giay" class="lien-ket-menu" target="_top">Giày</a>
+            </li>
+            <li class="muc-menu">
+              <a href="products.html?category=tui" class="lien-ket-menu" target="_top">Túi xách</a>
+            </li>
+            <li class="muc-menu">
+              <a href="products.html?category=phukien" class="lien-ket-menu" target="_top"
+                >Phụ kiện</a
+              >
+            </li>
+            <li class="muc-menu">
+              <a
+                href="products.html?sort=bestseller"
+                class="lien-ket-menu lien-ket-giam-gia"
+                >Khuyến mãi
+                <span
+                  class="nhan nhan-giam-gia"
+                  style="font-size: 0.6rem; padding: 2px 5px; margin-left: 4px"
+                  >HOT</span
+                target="_top"></a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Search Bar with Live Suggestions -->
+        <div class="tim-kiem-dau-trang">
+          <form class="khung-o-tim-kiem" id="bieuMauTimKiem">
+            <input
+              type="text"
+              class="o-tim-kiem"
+              placeholder="Tìm kiếm áo, giày, túi xách..."
+              autocomplete="off"
+            />
+            <button type="submit" class="nut-tim-kiem" aria-label="Tìm kiếm">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Header Action Icons -->
+        <div class="nhom-nut-dau-trang">
+          <!-- User Account Dropdown -->
+          <div class="khung-tai-khoan">
+            <a href="login.html" class="nut-chuc-nang-dau-trang nut-tai-khoan" aria-label="Tài khoản" target="_top">
+              <i class="fa-regular fa-user"></i>
+            </a>
+            <div class="menu-tai-khoan">
+              <!-- Rendered dynamically by main.js -->
+            </div>
+          </div>
+
+          <!-- Wishlist Icon -->
+          <a
+            href="profile.html?tab=wishlist"
+            class="nut-chuc-nang-dau-trang"
+            aria-label="Danh sách yêu thích" target="_top"
+          >
+            <i class="fa-regular fa-heart"></i>
+            <span class="nhan-so-luong so-luong-yeu-thich">0</span>
+          </a>
+
+          <!-- Cart Icon -->
+          <a href="cart.html" class="nut-chuc-nang-dau-trang" aria-label="Giỏ hàng" target="_top">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="nhan-so-luong so-luong-gio-hang">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <script>
+      document.getElementById("bieuMauTimKiem").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const tuKhoa = this.querySelector("input").value.trim();
+        if (tuKhoa) window.top.location.href = "products.html?search=" + encodeURIComponent(tuKhoa);
+      });
+      function capNhatSoLuongGioHang() {
+          const gioHang = JSON.parse(
+              localStorage.getItem("fashion_cart") || "[]"
+          );
+
+          const tongSoLuong = gioHang.reduce(
+              (tong, mon) => tong + (Number(mon.quantity) || 1),
+              0
+          );
+
+          document.querySelectorAll(".so-luong-gio-hang")
+              .forEach(nut => {
+                  nut.textContent = tongSoLuong;
+              });
+        }
+
+        capNhatSoLuongGioHang();
+
+        window.addEventListener("storage", capNhatSoLuongGioHang);
+</script>
+</body></html>

@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+<title>Sản Phẩm Thời Trang | DatNguyenThucShop</title>
+    <meta
+      name="description"
+      content="Danh sách sản phẩm thời trang nam nữ cao cấp, quần áo, giày dép, phụ kiện tại DatNguyenThucShop."
+    />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/bo-cuc.css" />
+  </head>
+  <body>
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <iframe src="header.html" title="Phan dau trang" style="display:block;position:sticky;top:0;z-index:1000;width:100%;height:80px;border:0;overflow:hidden;background:#fff"></iframe>
+
+    <nav class="thanh-duong-dan" aria-label="Điều hướng đường dẫn">
+      <a href="index.html">Trang chủ</a>
+      <span class="dau-phan-cach" aria-hidden="true">›</span>
+      <span class="duong-dan-hien-tai" aria-current="page">Sản phẩm</span>
+    </nav>
+    <main class="khung-noi-dung">
+      <div class="bo-cuc-danh-sach">
+        <!-- SIDEBAR FILTERS (Sticky on Desktop, Modal Drawer on Mobile) -->
+        <aside class="cot-bo-loc">
+          <!-- Mobile Drawer Header -->
+          <div class="dau-muc-cot-bo-loc" style="display: none">
+            <span style="font-weight: 700; font-size: 1.1rem"
+              >Bộ lọc tìm kiếm</span
+            >
+            <button
+              type="button"
+              class="nut-dong-hop-thoai nut-dong-cot-bo-loc"
+              aria-label="Đóng bộ lọc"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- 1. Danh mục -->
+          <div class="nhom-bo-loc">
+            <h4 class="tieu-de-bo-loc">Danh Mục</h4>
+            <div class="danh-sach-bo-loc">
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input
+                    type="radio"
+                    name="filterCategory"
+                    value="all"
+                    checked
+                  />
+                  Tất cả danh mục
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterCategory" value="ao" /> Áo
+                  thun & Sơ mi
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterCategory" value="quan" /> Quần
+                  âu & Jeans
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterCategory" value="vay" /> Váy &
+                  Đầm
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterCategory" value="giay" /> Giày
+                  dép
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterCategory" value="tui" /> Túi
+                  xách & Balo
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterCategory" value="mu" /> Mũ nón
+                  thời trang
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterCategory" value="phukien" />
+                  Phụ kiện khác
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 2. Giới tính -->
+          <div class="nhom-bo-loc">
+            <h4 class="tieu-de-bo-loc">Giới Tính</h4>
+            <div class="danh-sach-bo-loc">
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterGender" value="all" checked />
+                  Tất cả
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterGender" value="nam" /> Nam
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterGender" value="nu" /> Nữ
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterGender" value="unisex" />
+                  Unisex
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 3. Khoảng giá -->
+          <div class="nhom-bo-loc">
+            <h4 class="tieu-de-bo-loc">Khoảng Giá</h4>
+            <div class="danh-sach-bo-loc">
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterPrice" value="all" checked />
+                  Tất cả mức giá
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterPrice" value="under-300" />
+                  Dưới 300.000đ
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterPrice" value="300-500" />
+                  300.000đ - 500.000đ
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterPrice" value="500-1000" />
+                  500.000đ - 1.000.000đ
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterPrice" value="over-1000" />
+                  Trên 1.000.000đ
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 4. Kích thước (Size) -->
+          <div class="nhom-bo-loc">
+            <h4 class="tieu-de-bo-loc">Kích Thước (Size)</h4>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px"
+            >
+              <label class="nhan-o-chon"
+                ><input type="checkbox" name="filterSize" value="S" /> Size
+                S</label
+              >
+              <label class="nhan-o-chon"
+                ><input type="checkbox" name="filterSize" value="M" /> Size
+                M</label
+              >
+              <label class="nhan-o-chon"
+                ><input type="checkbox" name="filterSize" value="L" /> Size
+                L</label
+              >
+              <label class="nhan-o-chon"
+                ><input type="checkbox" name="filterSize" value="XL" /> Size
+                XL</label
+              >
+              <label class="nhan-o-chon"
+                ><input type="checkbox" name="filterSize" value="39" /> Size
+                39</label
+              >
+              <label class="nhan-o-chon"
+                ><input type="checkbox" name="filterSize" value="40" /> Size
+                40</label
+              >
+              <label class="nhan-o-chon"
+                ><input type="checkbox" name="filterSize" value="41" /> Size
+                41</label
+              >
+              <label class="nhan-o-chon"
+                ><input type="checkbox" name="filterSize" value="42" /> Size
+                42</label
+              >
+            </div>
+          </div>
+
+          <!-- 5. Đánh giá sao -->
+          <div class="nhom-bo-loc">
+            <h4 class="tieu-de-bo-loc">Đánh Giá</h4>
+            <div class="danh-sach-bo-loc">
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterRating" value="0" checked />
+                  Tất cả đánh giá
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterRating" value="4.8" />
+                  <span
+                    class="sao-danh-gia"
+                    style="font-size: 0.8rem; margin: 0 4px"
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                  ></span>
+                  từ 4.8 sao
+                </span>
+              </label>
+              <label class="nhan-bo-loc">
+                <span class="nhan-lua-chon">
+                  <input type="radio" name="filterRating" value="4.5" />
+                  <span
+                    class="sao-danh-gia"
+                    style="font-size: 0.8rem; margin: 0 4px"
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-regular fa-star"></i
+                  ></span>
+                  từ 4.5 sao
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Reset Button & Mobile Apply -->
+          <div
+            style="
+              margin-top: 24px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            "
+          >
+            <button
+              type="button"
+              id="btnResetFilters"
+              class="nut nut-phu nut-rong"
+            >
+              <i class="fa-solid fa-rotate-left"></i> Đặt lại bộ lọc
+            </button>
+            <button
+              type="button"
+              id="btnApplyMobileFilter"
+              class="nut nut-chinh nut-rong"
+              style="display: none"
+            >
+              Áp dụng bộ lọc
+            </button>
+          </div>
+        </aside>
+
+        <!-- MAIN DANH_SACH_SAN_PHAM CATALOG -->
+        <phan-noi-dung class="noi-dung-danh-sach">
+          <!-- Toolbar -->
+          <div class="thanh-cong-cu-danh-sach">
+            <div class="thong-tin-ket-qua" id="catalogResultsCount">
+              Hiển thị <strong>24</strong> sản phẩm
+            </div>
+
+            <div class="nhom-thao-tac-danh-sach">
+              <button
+                type="button"
+                class="nut nut-phu nut-nho nut-mo-bo-loc"
+              >
+                <i class="fa-solid fa-sliders"></i> Bộ lọc
+              </button>
+
+              <div style="display: flex; align-items: center; gap: 8px">
+                <label
+                  for="catalogSortSelect"
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--color-text-muted);
+                    white-space: nowrap;
+                  "
+                  >Sắp xếp:</label
+                >
+                <select id="catalogSortSelect" class="sap-xep-san-pham">
+                  <option value="newest">Sản phẩm mới nhất</option>
+                  <option value="bestseller">Bán chạy nhất</option>
+                  <option value="price-asc">Giá tăng dần</option>
+                  <option value="price-desc">Giá giảm dần</option>
+                  <option value="rating-desc">Đánh giá cao nhất</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Filter Tags -->
+          <div class="the-bo-loc-dang-chon" id="catalogActiveTags"></div>
+
+          <!-- Products Grid -->
+          <div class="luoi-san-pham" id="catalogProductsGrid">
+            <!-- Dynamic rendering by products.js -->
+          </div>
+
+          <!-- Pagination -->
+          <div class="phan-trang" id="catalogPagination"></div>
+        </phan-noi-dung>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <iframe src="footer.html" title="Phan chan trang" style="display:block;width:100%;height:390px;border:0;overflow:hidden"></iframe>
+
+    <!-- SCRIPTS -->
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

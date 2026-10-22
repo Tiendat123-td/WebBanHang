@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+<title>Đăng Ký Tài Khoản | DatNguyenThucShop</title>
+    <meta
+      name="description"
+      content="Đăng ký tài khoản thành viên DatNguyenThucShop để nhận ngay voucher giảm 10% cho đơn hàng đầu tiên."
+    />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/bo-cuc.css" />
+  </head>
+  <body>
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <iframe src="header.html" title="Phan dau trang" style="display:block;position:sticky;top:0;z-index:1000;width:100%;height:80px;border:0;overflow:hidden;background:#fff"></iframe>
+
+    <nav class="thanh-duong-dan" aria-label="Điều hướng đường dẫn">
+      <a href="index.html">Trang chủ</a>
+      <span class="dau-phan-cach" aria-hidden="true">›</span>
+      <span class="duong-dan-hien-tai" aria-current="page">Đăng ký tài khoản</span>
+    </nav>
+    <main class="khung-xac-thuc">
+      <div class="the-xac-thuc">
+        <div class="dau-muc-xac-thuc">
+          <h1 class="tieu-de-xac-thuc">Đăng Ký Tài Khoản</h1>
+          <p class="mo-ta-xac-thuc">
+            Trở thành thành viên DatNguyenThucShop và nhận ngay voucher giảm 10%
+          </p>
+        </div>
+
+        <form id="registerForm" novalidate>
+          <!-- Full Name -->
+          <div class="nhom-truong-nhap">
+            <label class="nhan-truong-nhap"
+              >Họ và tên <span class="bat-buoc">*</span></label
+            >
+            <input
+              type="text"
+              name="fullName"
+              class="o-nhap"
+              placeholder="Nguyễn Văn A"
+            />
+            <div class="loi-nhap-lieu"></div>
+          </div>
+
+          <!-- Email -->
+          <div class="nhom-truong-nhap">
+            <label class="nhan-truong-nhap"
+              >Địa chỉ Email <span class="bat-buoc">*</span></label
+            >
+            <input
+              type="email"
+              name="email"
+              class="o-nhap"
+              placeholder="nguyenvana@gmail.com"
+            />
+            <div class="loi-nhap-lieu"></div>
+          </div>
+
+          <!-- Phone -->
+          <div class="nhom-truong-nhap">
+            <label class="nhan-truong-nhap"
+              >Số điện thoại <span class="bat-buoc">*</span></label
+            >
+            <input
+              type="tel"
+              name="phone"
+              class="o-nhap"
+              placeholder="0901234567"
+            />
+            <div class="loi-nhap-lieu"></div>
+          </div>
+
+          <!-- Password -->
+          <div class="nhom-truong-nhap">
+            <label class="nhan-truong-nhap"
+              >Mật khẩu <span class="bat-buoc">*</span></label
+            >
+            <div class="khung-mat-khau">
+              <input
+                type="password"
+                name="password"
+                class="o-nhap"
+                placeholder="Tối thiểu 6 ký tự..."
+              />
+              <button
+                type="button"
+                class="nut-hien-mat-khau"
+                aria-label="Hiện/ẩn mật khẩu"
+              >
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <div class="loi-nhap-lieu"></div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="nhom-truong-nhap">
+            <label class="nhan-truong-nhap"
+              >Nhập lại mật khẩu <span class="bat-buoc">*</span></label
+            >
+            <div class="khung-mat-khau">
+              <input
+                type="password"
+                name="confirmPassword"
+                class="o-nhap"
+                placeholder="Xác nhận lại mật khẩu..."
+              />
+              <button
+                type="button"
+                class="nut-hien-mat-khau"
+                aria-label="Hiện/ẩn mật khẩu"
+              >
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <div class="loi-nhap-lieu"></div>
+          </div>
+
+          <!-- Terms -->
+          <div class="nhom-truong-nhap" style="margin-bottom: 24px">
+            <label
+              class="nhan-o-chon"
+              style="font-size: 0.8rem; align-items: flex-start"
+            >
+              <input type="checkbox" bat-buoc checked style="margin-top: 3px" />
+              <span
+                >Tôi đồng ý với
+                <a
+                  href="#"
+                  style="
+                    text-decoration: underline;
+                    color: var(--color-primary);
+                  "
+                  >Điều khoản sử dụng</a
+                >
+                và
+                <a
+                  href="#"
+                  style="
+                    text-decoration: underline;
+                    color: var(--color-primary);
+                  "
+                  >Chính sách bảo mật</a
+                >
+                của DatNguyenThucShop.</span
+              >
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="nut nut-chinh nut-rong nut-lon"
+            style="letter-spacing: 0.5px"
+          >
+            Tạo tài khoản ngay
+          </button>
+        </form>
+
+        <div class="duong-phan-cach-xac-thuc">HOẶC</div>
+
+        <div style="text-align: center; font-size: 0.9rem">
+          Bạn đã có tài khoản?
+          <a
+            href="login.html"
+            style="
+              font-weight: 700;
+              color: var(--color-primary);
+              text-decoration: underline;
+            "
+          >
+            Đăng nhập tại đây
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <iframe src="footer.html" title="Phan chan trang" style="display:block;width:100%;height:390px;border:0;overflow:hidden"></iframe>
+
+    <!-- SCRIPTS -->
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

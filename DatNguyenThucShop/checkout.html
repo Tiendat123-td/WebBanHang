@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+<title>Thanh Toán Đơn Hàng | DatNguyenThucShop</title>
+    <meta
+      name="description"
+      content="Thanh toán an toàn, nhanh chóng tại DatNguyenThucShop."
+    />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/bo-cuc.css" />
+  </head>
+  <body>
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <iframe src="header.html" title="Phan dau trang" style="display:block;position:sticky;top:0;z-index:1000;width:100%;height:80px;border:0;overflow:hidden;background:#fff"></iframe>
+
+    <nav class="thanh-duong-dan" aria-label="Điều hướng đường dẫn">
+      <a href="index.html">Trang chủ</a>
+      <span class="dau-phan-cach" aria-hidden="true">›</span>
+      <a href="cart.html">Giỏ hàng</a>
+      <span class="dau-phan-cach" aria-hidden="true">›</span>
+      <span class="duong-dan-hien-tai" aria-current="page">Thanh toán</span>
+    </nav>
+    <main class="khung-noi-dung" style="padding-top: 30px; padding-bottom: 70px">
+      <div class="dau-muc-phan-noi-dung" style="text-align: left; margin-bottom: 24px">
+        <span class="phu-de-phan-noi-dung">HOÀN TẤT ĐẶT HÀNG</span>
+        <h1 class="tieu-de-phan-noi-dung">Thông Tin Thanh Toán</h1>
+      </div>
+
+      <div class="bo-cuc-thanh-toan">
+        <!-- Form thông tin & phương thức thanh toán -->
+        <form id="checkoutForm" novalidate>
+          <!-- CARD 1: THÔNG TIN GIAO HÀNG -->
+          <div class="the-thanh-toan">
+            <h2 class="tieu-de-the-thanh-toan">
+              <i class="fa-solid fa-truck"></i> 1. Thông tin giao hàng
+            </h2>
+
+            <div class="nhom-truong-nhap">
+              <label class="nhan-truong-nhap"
+                >Họ và tên người nhận <span class="bat-buoc">*</span></label
+              >
+              <input
+                type="text"
+                name="fullName"
+                class="o-nhap"
+                placeholder="Nguyễn Văn A"
+              />
+              <div class="loi-nhap-lieu"></div>
+            </div>
+
+            <div class="luoi-bieu-mau-2-cot">
+              <div class="nhom-truong-nhap">
+                <label class="nhan-truong-nhap"
+                  >Số điện thoại liên hệ <span class="bat-buoc">*</span></label
+                >
+                <input
+                  type="tel"
+                  name="phone"
+                  class="o-nhap"
+                  placeholder="0901234567"
+                />
+                <div class="loi-nhap-lieu"></div>
+              </div>
+
+              <div class="nhom-truong-nhap">
+                <label class="nhan-truong-nhap"
+                  >Địa chỉ email <span class="bat-buoc">*</span></label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  class="o-nhap"
+                  placeholder="nguyenvana@gmail.com"
+                />
+                <div class="loi-nhap-lieu"></div>
+              </div>
+            </div>
+
+            <div class="luoi-bieu-mau-2-cot">
+              <div class="nhom-truong-nhap">
+                <label class="nhan-truong-nhap"
+                  >Tỉnh / Thành phố <span class="bat-buoc">*</span></label
+                >
+                <select name="city" class="chon-thong-tin">
+                  <option value="">-- Chọn Tỉnh / Thành phố --</option>
+                  <option value="Hà Nội">Hà Nội</option>
+                  <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                  <option value="Đà Nẵng">Đà Nẵng</option>
+                  <option value="Hải Phòng">Hải Phòng</option>
+                  <option value="Cần Thơ">Cần Thơ</option>
+                  <option value="Quảng Ninh">Quảng Ninh</option>
+                  <option value="Bình Dương">Bình Dương</option>
+                  <option value="Đồng Nai">Đồng Nai</option>
+                  <option value="Khác">Tỉnh thành khác...</option>
+                </select>
+                <div class="loi-nhap-lieu"></div>
+              </div>
+
+              <div class="nhom-truong-nhap">
+                <label class="nhan-truong-nhap"
+                  >Quận / Huyện <span class="bat-buoc">*</span></label
+                >
+                <input
+                  type="text"
+                  name="district"
+                  class="o-nhap"
+                  placeholder="Ví dụ: Quận 1, Cầu Giấy..."
+                />
+                <div class="loi-nhap-lieu"></div>
+              </div>
+            </div>
+
+            <div class="nhom-truong-nhap">
+              <label class="nhan-truong-nhap"
+                >Địa chỉ cụ thể (Số nhà, tên đường, phường/xã)
+                <span class="bat-buoc">*</span></label
+              >
+              <input
+                type="text"
+                name="address"
+                class="o-nhap"
+                placeholder="Số 123 đường ABC, Phường XYZ..."
+              />
+              <div class="loi-nhap-lieu"></div>
+            </div>
+
+            <div class="nhom-truong-nhap" style="margin-bottom: 0">
+              <label class="nhan-truong-nhap"
+                >Ghi chú cho đơn vị vận chuyển (Tùy chọn)</label
+              >
+              <textarea
+                name="note"
+                class="o-noi-dung"
+                rows="2"
+                placeholder="Ví dụ: Giao giờ hành chính, gọi điện trước khi giao..."
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- CARD 2: PHƯƠNG THỨC THANH TOÁN -->
+          <div class="the-thanh-toan">
+            <h2 class="tieu-de-the-thanh-toan">
+              <i class="fa-solid fa-credit-card"></i> 2. Phương thức thanh toán
+            </h2>
+
+            <div class="danh-sach-phuong-thuc-thanh-toan">
+              <!-- COD -->
+              <div class="the-phuong-thuc-thanh-toan dang-chon">
+                <label class="nhan-lua-chon" style="font-weight: 600">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="COD"
+                    checked
+                    data-target="boxCOD"
+                  />
+                  <span>Thanh toán khi nhận hàng (COD)</span>
+                </label>
+                <div class="khung-thong-tin-thanh-toan dang-mo" id="boxCOD">
+                  Quý khách sẽ thanh toán tiền mặt trực tiếp cho nhân viên giao
+                  hàng khi nhận được gói bưu phẩm. Được quyền kiểm tra hàng
+                  trước khi nhận.
+                </div>
+              </div>
+
+              <!-- Chuyển khoản ngân hàng -->
+              <div class="the-phuong-thuc-thanh-toan">
+                <label class="nhan-lua-chon" style="font-weight: 600">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="BANK"
+                    data-target="boxBank"
+                  />
+                  <span>Chuyển khoản ngân hàng (QR Code 24/7)</span>
+                </label>
+                <div class="khung-thong-tin-thanh-toan" id="boxBank">
+                  <div
+                    style="
+                      display: flex;
+                      gap: 16px;
+                      align-items: center;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <div
+                      style="
+                        background: #fff;
+                        padding: 8px;
+                        border: 1px solid #ddd;
+                        border-radius: 6px;
+                        text-align: center;
+                      "
+                    >
+                      <i
+                        class="fa-solid fa-qrcode fa-3x"
+                        style="color: #111"
+                      ></i>
+                      <div
+                        style="
+                          font-size: 0.7rem;
+                          font-weight: 700;
+                          margin-top: 4px;
+                        "
+                      >
+                        QR PAY
+                      </div>
+                    </div>
+                    <div style="line-height: 1.6">
+                      <div>
+                        Ngân hàng:
+                        <strong>Vietcombank (Chi nhánh Sở Giao Dịch)</strong>
+                      </div>
+                      <div>
+                        Số tài khoản:
+                        <strong
+                          style="color: var(--color-danger); font-size: 1rem"
+                          >0939957116</strong
+                        >
+                      </div>
+                      <div>
+                        Chủ tài khoản: <strong>CTY TNHH THOI TRANG DatNguyenThucShop</strong>
+                      </div>
+                      <div
+                        style="
+                          font-size: 0.8rem;
+                          color: var(--color-text-muted);
+                        "
+                      >
+                        Nội dung CK:
+                        <strong style="color: var(--color-primary)"
+                          >[Số điện thoại] - DatNguyenThucShop</strong
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ví điện tử -->
+              <div class="the-phuong-thuc-thanh-toan">
+                <label class="nhan-lua-chon" style="font-weight: 600">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="MOMO"
+                    data-target="boxEwallet"
+                  />
+                  <span>Ví điện tử MoMo / ZaloPay / VNPay</span>
+                </label>
+                <div class="khung-thong-tin-thanh-toan" id="boxEwallet">
+                  Hệ thống sẽ kết nối với cổng thanh toán điện tử an toàn để quý
+                  khách quét mã hoặc xác nhận giao dịch trong tích tắc.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button on Mobile/Tablet -->
+          <div style="margin-top: 20px">
+            <button
+              type="submit"
+              class="nut nut-chinh nut-rong nut-lon"
+              style="letter-spacing: 0.5px"
+            >
+              <i class="fa-solid fa-lock"></i> Đặt hàng ngay
+            </button>
+          </div>
+        </form>
+
+        <!-- Tóm tắt đơn hàng bên phải -->
+        <aside class="khung-tong-gio-hang" style="margin-top: 0">
+          <h3 class="tieu-de-tong-gio-hang">Tóm tắt đơn hàng</h3>
+
+          <div id="checkoutSummaryContent">
+            <!-- Populated dynamically by checkout.js -->
+          </div>
+
+          <div
+            style="
+              margin-top: 24px;
+              padding-top: 16px;
+              border-top: 1px solid var(--color-border);
+              font-size: 0.8rem;
+              color: var(--color-text-muted);
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            "
+          >
+            <div style="display: flex; align-items: center; gap: 8px">
+              <i
+                class="fa-solid fa-shield-check"
+                style="color: var(--color-success)"
+              ></i>
+              Thanh toán an toàn với mã hóa SSL 256-bit
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px">
+              <i
+                class="fa-solid fa-box-open"
+                style="color: var(--color-accent-hover)"
+              ></i>
+              Đóng gói hộp quà sang trọng chống va đập
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <iframe src="footer.html" title="Phan chan trang" style="display:block;width:100%;height:390px;border:0;overflow:hidden"></iframe>
+
+    <!-- SCRIPTS -->
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
