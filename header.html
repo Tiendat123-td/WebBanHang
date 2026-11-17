@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/bo-cuc.css?v=20261028-size-hover">
+    <link rel="stylesheet" href="css/size-buttons.css?v=20261028-size-fix" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+html,body{margin:0;padding:0;width:100%;font-family:Arial,sans-serif}
+body{min-height:0;overflow:visible;background-color:white;}
+</style>
+</head><body>
+<!-- STICKY SITE HEADER -->
+    <header class="dau-trang">
+      <div class="khung-noi-dung dau-trang-ben-trong">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="logo-cua-hang" target="_top">
+          <div class="bieu-tuong-logo">
+            <img src="images/logo.png" alt="Logo DatNguyenThucShop" />
+          </div>
+         
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="menu-chinh" aria-label="Menu chính">
+          <ul class="danh-sach-menu">
+            <li class="muc-menu dang-chon">
+              <a href="index.html" class="lien-ket-menu" target="_top">Trang chủ</a>
+            </li>
+            <li class="muc-menu">
+              <a href="products.html?search=nam" class="lien-ket-menu" target="_top">Nam</a>
+            </li>
+            <li class="muc-menu">
+              <a href="products.html?search=nu" class="lien-ket-menu" target="_top">Nữ</a>
+            </li>
+            <li class="muc-menu">
+              <a href="products.html?category=giay" class="lien-ket-menu" target="_top">Giày</a>
+            </li>
+            <li class="muc-menu">
+              <a href="products.html?category=tui" class="lien-ket-menu" target="_top">Túi xách</a>
+            </li>
+            <li class="muc-menu">
+              <a href="products.html?category=phukien" class="lien-ket-menu" target="_top"
+                >Phụ kiện</a
+              >
+            </li>
+            <li class="muc-menu">
+              <a
+                href="products.html?promotion=1"
+                class="lien-ket-menu lien-ket-giam-gia"
+                target="_top"
+                >Khuyến mãi
+                <span
+                  class="nhan nhan-giam-gia"
+                  style="font-size: 0.6rem; padding: 2px 5px; margin-left: 4px"
+                  >HOT</span
+                >
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Search Bar with Live Suggestions -->
+        <div class="tim-kiem-dau-trang">
+          <form class="khung-o-tim-kiem" id="bieuMauTimKiem">
+            <input
+              type="text"
+              class="o-tim-kiem"
+              placeholder="Tìm kiếm áo, giày, túi xách..."
+              autocomplete="off"
+            />
+            <button type="submit" class="nut-tim-kiem" aria-label="Tìm kiếm">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Header Action Icons -->
+        <div class="nhom-nut-dau-trang">
+          <!-- User Account Dropdown -->
+          <div class="khung-tai-khoan">
+            <a href="login.html" class="nut-chuc-nang-dau-trang nut-tai-khoan" aria-label="Tài khoản" aria-haspopup="true" aria-expanded="false" aria-controls="accountDropdown" target="_top">
+              <i class="fa-regular fa-user"></i>
+            </a>
+            <div class="menu-tai-khoan" id="accountDropdown"></div>
+          </div>
+
+          <!-- Wishlist Icon -->
+          <a
+            href="profile.html?tab=wishlist"
+            class="nut-chuc-nang-dau-trang"
+            aria-label="Danh sách yêu thích" target="_top"
+          >
+            <i class="fa-regular fa-heart"></i>
+            <span class="nhan-so-luong so-luong-yeu-thich">0</span>
+          </a>
+
+          <!-- Cart Icon -->
+          <a href="cart.html" class="nut-chuc-nang-dau-trang" aria-label="Giỏ hàng" target="_top">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="nhan-so-luong so-luong-gio-hang">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <script>
+      const accountLink = document.querySelector(".nut-tai-khoan");
+      const accountMenu = document.getElementById("accountDropdown");
+      const headerFrame = window.frameElement;
+
+      function escapeHeaderText(value) {
+        const entities = { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" };
+        return String(value ?? "").replace(/[&<>"']/g, char => entities[char]);
+      }
+
+      function currentHeaderUser() {
+        try {
+          const user = JSON.parse(localStorage.getItem("fashion_current_user") || "null");
+          return user && typeof user === "object" ? user : null;
+        } catch (error) {
+          localStorage.removeItem("fashion_current_user");
+          return null;
+        }
+      }
+
+      function updateHeaderFrameHeight() {
+        if (!headerFrame) return;
+        const header = document.querySelector(".dau-trang");
+        const headerHeight = header ? Math.ceil(header.getBoundingClientRect().height) : 80;
+        const menuBottom = accountMenu?.classList.contains("is-open")
+          ? Math.ceil(accountMenu.getBoundingClientRect().bottom + 8)
+          : 0;
+        headerFrame.style.height = Math.max(80, headerHeight, menuBottom) + "px";
+      }
+
+      function setAccountMenuOpen(open) {
+        if (!accountMenu) return;
+        accountMenu.classList.toggle("is-open", open);
+        accountLink?.setAttribute("aria-expanded", String(open));
+        requestAnimationFrame(updateHeaderFrameHeight);
+      }
+
+      function renderAccountMenu() {
+        if (!accountLink || !accountMenu) return;
+        const user = currentHeaderUser();
+        const isAdmin = user?.role === "admin";
+        accountLink.href = user ? (isAdmin ? "admin/index.php" : "profile.html?tab=info") : "login.html";
+        accountLink.setAttribute("aria-label", user ? (isAdmin ? "Quản trị" : "Tài khoản của tôi") : "Đăng nhập tài khoản");
+        accountLink.title = user ? (isAdmin ? "Quản trị" : "Tài khoản của tôi") : "Đăng nhập";
+
+        const heading = user
+          ? '<div class="account-dropdown-header"><div class="account-user-name">' + escapeHeaderText(user.name || user.full_name || "Khách hàng") + '</div><div class="account-user-email">' + escapeHeaderText(user.email || "") + '</div></div>'
+          : '<div class="account-dropdown-header"><div class="account-user-name">Chào mừng bạn!</div><div class="account-user-email">Đăng nhập để nhận ưu đãi</div></div>';
+        const links = isAdmin
+          ? '<a href="admin/index.php" target="_top" class="account-dropdown-link"><i class="fa-solid fa-gauge-high"></i> Quản trị hệ thống</a>'
+          : user
+            ? '<a href="profile.html?tab=info" target="_top" class="account-dropdown-link"><i class="fa-regular fa-user"></i> Tài khoản của tôi</a><a href="profile.html?tab=orders" target="_top" class="account-dropdown-link"><i class="fa-solid fa-box"></i> Đơn mua của tôi</a><a href="profile.html?tab=wishlist" target="_top" class="account-dropdown-link"><i class="fa-regular fa-heart"></i> Danh sách yêu thích</a><a href="#" data-header-logout class="account-dropdown-link text-danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a>'
+            : '<a href="login.html" target="_top" class="account-dropdown-link"><i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập</a><a href="register.html" target="_top" class="account-dropdown-link"><i class="fa-regular fa-id-card"></i> Đăng ký tài khoản</a>';
+        accountMenu.innerHTML = heading + links;
+        accountMenu.querySelector("[data-header-logout]")?.addEventListener("click", event => {
+          event.preventDefault();
+          setAccountMenuOpen(false);
+          if (typeof window.parent.dangXuatNguoiDung === "function") {
+            window.parent.dangXuatNguoiDung(event);
+            return;
+          }
+          fetch("api/auth/logout.php", { method: "POST", credentials: "same-origin" })
+            .catch(() => {})
+            .finally(() => {
+              localStorage.removeItem("fashion_current_user");
+              window.top.location.href = "index.html";
+            });
+        });
+        updateHeaderFrameHeight();
+      }
+
+      function capNhatSoLuongHuyHieuHeader() {
+        let gioHang = [];
+        let danhSachYeuThich = [];
+        try {
+          const storedCart = JSON.parse(localStorage.getItem("fashion_cart") || "[]");
+          gioHang = Array.isArray(storedCart) ? storedCart : [];
+        } catch (error) {
+          localStorage.removeItem("fashion_cart");
+        }
+        try {
+          const storedWishlist = JSON.parse(localStorage.getItem("fashion_wishlist") || "[]");
+          danhSachYeuThich = Array.isArray(storedWishlist) ? storedWishlist : [];
+        } catch (error) {
+          localStorage.removeItem("fashion_wishlist");
+        }
+        const tongSoLuong = gioHang.reduce((tong, mon) => tong + (Number(mon.quantity) || 1), 0);
+        const soYeuThich = new Set(danhSachYeuThich.map(Number).filter(id => Number.isInteger(id) && id > 0)).size;
+        document.querySelectorAll(".so-luong-gio-hang").forEach(nut => { nut.textContent = tongSoLuong; });
+        document.querySelectorAll(".so-luong-yeu-thich").forEach(nut => { nut.textContent = soYeuThich; });
+      }
+
+      document.getElementById("bieuMauTimKiem")?.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const tuKhoa = this.querySelector("input")?.value.trim();
+        if (tuKhoa) window.top.location.href = "products.html?search=" + encodeURIComponent(tuKhoa);
+      });
+      accountLink?.addEventListener("click", event => {
+        event.preventDefault();
+        setAccountMenuOpen(!accountMenu?.classList.contains("is-open"));
+      });
+      document.addEventListener("click", event => {
+        if (!event.target.closest(".khung-tai-khoan")) setAccountMenuOpen(false);
+      });
+      try {
+        window.parent.document.addEventListener("click", event => {
+          if (headerFrame && event.target !== headerFrame && !headerFrame.contains(event.target)) setAccountMenuOpen(false);
+        });
+      } catch (error) {}
+      window.addEventListener("resize", updateHeaderFrameHeight);
+      window.addEventListener("storage", event => {
+        if (event.key === "fashion_current_user" || event.key === null) renderAccountMenu();
+        capNhatSoLuongHuyHieuHeader();
+      });
+      renderAccountMenu();
+      capNhatSoLuongHuyHieuHeader();
+      requestAnimationFrame(updateHeaderFrameHeight);
+</script>
+</body></html>
